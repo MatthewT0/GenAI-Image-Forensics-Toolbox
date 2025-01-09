@@ -68,7 +68,7 @@ The jpeg_toolbox.rar within Util directory will need to be unzipped and the path
     - Click Add folder and locate the above highlighted paths.
 
 ### Run the Setup Script
-There is a provided setup script to create the needed directory structure. Depending on which operating system you use, both a Windows bat script and Linux bash script have been included. These need to be run in the terminal from the directory they are placed in.
+There is a setup script provided to create the needed directory structure. Depending on which operating system you use, both a Windows bat script and Linux bash script have been included. These need to be run in the terminal from the directory they are placed in.
 
 You should ensure you are in the root directory of GenAI-Image-Forensics-Toolbox within the terminal:
 ```powershell
@@ -99,7 +99,7 @@ More information on each directory can be found in the [Directory Structure](#di
 
 
 ### Add Images to Corresponding Directories
-This code is written on the assumption that the naming syntax of the images is:  
+This code assumes that the naming syntax of the images is:  
 `[ToolOfManipulation]_[Class]_inpaint_[NumID]_[IterationNum]`.
 
 For example,  
@@ -175,17 +175,17 @@ These files are then resaved in the Normalised directory, with the same file str
 
 This script can be found within the `./Analysis_and_Processing` directory.
 
-The script organises files by created a structured dataset (struct) that includes the key information such as filename, class, tool, normalised evaluation results, and other data required for result analysis.
+The script organises files by creating a structured dataset (struct) that includes the key information such as filename, class, tool, normalised evaluation results, and other data required for result analysis.
 
 For large datasets, the script may take some time to complete. To monitor progress and confirm it is running correctly you can uncomment line 21 to enable progress output.
 
-The script outputs a .mat file for each algorihtm, containing the organised structs. These files are saved in the OrganisedFiles directory, where they are used for further anlaysis.
+The script outputs a .mat file for each algorithm, containing the organised structs. These files are saved in the OrganisedFiles directory, where they are used for further analysis.
 
 ### AuAddition.m <!-- omit from toc -->
 
 This script can be found within the `./Analysis_and_Processing` directory.
 
-The script processes the structured data created by the previous script (OrganiseFiles.m) and allocated each tampered image with its reference authentic image and the output values corresponding to it.
+The script processes the structured data created by the previous script (OrganiseFiles.m) and allocates each tampered image with its corresponding authentic image and the output values corresponding to it.
 
 Similarly to the previous script, for larger datasets this script can take some time to complete. To monitor its progress and ensure it is running correctly you can uncomment line 12.
 
@@ -203,11 +203,12 @@ These values are written to a structured dataset (struct) and saved in the Thres
 
 This script can be found within the `./Analysis_and_Processing` directory.
 
-This is the final script which will analyse all values across the files for each algorithm and class. Then, a summary is saved to a spreadsheet (xlsx) for viewing. These values can be used to create graphs or further analysis.
+This is the final script which will analyse all values across the files for each algorithm and class. Then a summary is saved to a spreadsheet (xlsx) for viewing. These values can be used to create graphs for further analysis.
 
 The outputted file can be found within the OrganisedFiles\Graphing directory.
 
-If a .mat file is preferred the graphing script can be used instead of graphingExcel. If a different split analysis than classes is needed refer to the [developer_guidelines](docs/developer_guidelines.md) for information on the implementation.
+If a .mat file is preferred the graphing script can be used instead of graphingExcel. 
+If classes are not being used for the dataset split, then refer to the [developer_guidelines](docs/developer_guidelines.md) for further help.
 
 ## Directory Structure
 The key components of the directory structure include:

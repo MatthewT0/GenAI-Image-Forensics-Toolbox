@@ -51,7 +51,7 @@ The name of the algorithm must be the name of a subdirectory in `./Algorithms`.
 
 This code will automatically run on 13 localisation algorithms. However this can be modified to run whatever number of algorithms you want to.
 
-Due to the majority of these localisation algorithms being created for jpegs, using another file type wont work. If you are running the code on PNGs, use the reduced algorithm list below:
+Due to the majority of these localisation algorithms being created for jpegs, using another file type wont work. If you are running the code on pngs, use the reduced algorithm list below:
 ```matlab
 algorithmNames = {'ADQ1', 'BLK', 'CAGI', 'CFA1', ... 
                 'CFA3', 'DCT', 'ELA', ...
