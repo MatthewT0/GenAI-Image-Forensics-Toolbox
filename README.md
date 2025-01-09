@@ -47,7 +47,7 @@ To setup this project the following needs to be completed:
 Before setting up the project, ensure you have:
 - MATLAB R2024a installed on your system.
 - A git clone of the GenAI-Image-Forensics-Toolbox repository.
-- The required tooldbox files (jpeg_toolbox.rar) within the Util directory.
+- The required toolbox files (jpeg_toolbox.rar) within the Util directory.
 
 
 ### Install the required MATLAB packages
@@ -187,7 +187,7 @@ This script can be found within the `./Analysis_and_Processing` directory.
 
 The script processes the structured data created by the previous script (OrganiseFiles.m) and allocated each tampered image with its reference authentic image and the output values corresponding to it.
 
-Simiarly to the previous script, for larger datasets this script can take some time to complete. To monitor its progress and ensure it is running correcly you can uncomment line 12.
+Similarly to the previous script, for larger datasets this script can take some time to complete. To monitor its progress and ensure it is running correctly you can uncomment line 12.
 
 The updated structured dataset (struct) overwrites the .mat files saved in the OrganisedFiles directory, for future analysis.
 
@@ -195,7 +195,7 @@ The updated structured dataset (struct) overwrites the .mat files saved in the O
 
 This script can be found within the `./Analysis_and_Processing` directory.
 
-The script processes the organised .mat files with a pre-set threshold of the reference authentic image evalutation values. It uses this analysis to calculate some evaluation metrics such as the mean and median for the images.
+The script processes the organised .mat files with a pre-set threshold of the reference authentic image evaluation values. It uses this analysis to calculate some evaluation metrics such as the mean and median for the images.
 
 These values are written to a structured dataset (struct) and saved in the Threshold directory within OrganisedFiles.
 
@@ -205,9 +205,9 @@ This script can be found within the `./Analysis_and_Processing` directory.
 
 This is the final script which will analyse all values across the files for each algorithm and class. Then, a summary is saved to a spreadsheet (xlsx) for viewing. These values can be used to create graphs or further analysis.
 
-The outputed file can be found within the OrganisedFiles\Graphing directory.
+The outputted file can be found within the OrganisedFiles\Graphing directory.
 
-If a .mat file is prefered the graphing script can be used instead of graphingExcel. If a different split analysis than classes is needed refer to the [developer_guidelines](docs/developer_guidelines.md) for information on the implementation.
+If a .mat file is preferred the graphing script can be used instead of graphingExcel. If a different split analysis than classes is needed refer to the [developer_guidelines](docs/developer_guidelines.md) for information on the implementation.
 
 ## Directory Structure
 The key components of the directory structure include:
@@ -267,14 +267,14 @@ Masks are required for spliced or inpainted images and can be organised in one o
 ### Other Directories
 - **Algorithms**: The Algorithms directory contains all the code for the 16 included algorithms, of which 13 are used in this image evaluation.
 - **Analysis_and_Processing**: This directory contains all the additional scripts for processing the output results.
-- **Util**: This contains the necessary packages for the base code to run. These should not need to be ammended.
-- **Ouptut**: This directory holds the original output from the modified base code, which is used for the analysis of the files in later scripts
+- **Util**: This contains the necessary packages for the base code to run. These should not need to be amended.
+- **Output**: This directory holds the original output from the modified base code, which is used for the analysis of the files in later scripts
 - **Normalised**: This contains the output values normalised between 0 and 1 for ease of analysis.
 - **OrganisedFiles**: This directory contains all other outputs from the analysis scripts.
 
 
 ## Citations
-The main framework paper and 13 localisation algorithms papers can be found detailed below, for other localisation algorithms inclusion please refer to the relevent readme within the algorithm directory.
+The main framework paper and 13 localisation algorithms papers can be found detailed below, for other localisation algorithms inclusion please refer to the relevant readme within the algorithm directory.
 
 ### The main framework paper:   <!-- omit from toc -->
 Markos Zampoglou, Symeon Papadopoulos, and Yiannis Kompatsiaris. 2017.

@@ -13,10 +13,10 @@ This being the first pre-release, there are no bug fixes relative to a previous 
 
 ## Known Issues
 - Manual user input in directory paths required. 
-- The provied script may take a long time for large datasets.
+- The provided script may take a long time for large datasets.
 - Limited support for fully AI generated images.
 
 ## Important Notes
- - The toolbox has only been tested in windows, but in theory should work on Linux.
+- The toolbox has only been tested in windows, but in theory should work on Linux.
 
 **Full Changelog**: https://github.com/MatthewT0/GenAI-Image-Forensics-Toolbox/commits/v0.1.0

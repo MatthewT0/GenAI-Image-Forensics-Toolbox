@@ -3,7 +3,7 @@
 This is preliminary code which will likely change in future updates, including the merge of multiple post-processing and evaluation scripts.
 
 The base code was primarily adapted from the [Image Forensics Toolbox](https://github.com/MKLab-ITI/image-forensics/blob/master/matlab_toolbox/), and individual citations for each algorithm can be found within the corresponding algorithm directories readme.  
-This code was amdended, written, and tested using MATLAB R2024a in both Windows 10 and 11.
+This code was amended, written, and tested using MATLAB R2024a in both Windows 10 and 11.
 
 ## Table of Contents <!-- omit from toc -->
 - [Implementing new algorithms and base code framework information](#implementing-new-algorithms-and-base-code-framework-information)
@@ -20,7 +20,7 @@ This code was amdended, written, and tested using MATLAB R2024a in both Windows 
 For new algorithm implementation and further information on the base code framework (Algorithms folder and all .m scripts in the root directory) refer to the [Original Repository README](Original_Repo_Readme.md). 
 
 ## Different Directory Structure Implementation
-If you are not using subfolders in your tampered images some code may need to be ammended. The code modifications and files in which these need to take place can be found below. 
+If you are not using subfolders in your tampered images some code may need to be amended. The code modifications and files in which these need to take place can be found below. 
 ### Normalised.m 
 Line 6 and 7 should be replaced with the no subfolder version, removing the wildcard for further directory indentation after Sp/Au:
 ```Matlab
@@ -49,9 +49,9 @@ Lines 16, 17, and 18 may need to be changed depending on your directory structur
 ## Changing what Algorithms to Run
 The name of the algorithm must be the name of a subdirectory in `./Algorithms`.
 
-This code will automatically run on 13 localisation alogirthms. However this can be modified to run whatever number of algorithms you want to.
+This code will automatically run on 13 localisation algorithms. However this can be modified to run whatever number of algorithms you want to.
 
-Due to the majority of these localisation algorithms being created for jpegs, using another file type wont work. If you are running the code on pngs, use the reduced algorithm list below:
+Due to the majority of these localisation algorithms being created for jpegs, using another file type wont work. If you are running the code on PNGs, use the reduced algorithm list below:
 ```matlab
 algorithmNames = {'ADQ1', 'BLK', 'CAGI', 'CFA1', ... 
                 'CFA3', 'DCT', 'ELA', ...
@@ -63,7 +63,7 @@ The algorithms 'CFA2', 'NOI2', and'GHO' were not used for this experiment and wi
 ## Graphing different subdirectory splits
 This code was used for processing tool splits as well as the initial class splits. The code will require some modification for this to be possible, and the changes can be applied to other required splits for image analysis. The breakdown will show how to modify the code for tool use, but the same changes can be implemented for other splits.
 
-Refer to the relevent section for the graphing method you want to modify whether the [graphing.m](#graphingm-changes) for the .mat output, or the [graphingExcel.m](#graphingexcelm-changes) for the xlsx output.
+Refer to the relevant section for the graphing method you want to modify whether the [graphing.m](#graphingm-changes) for the .mat output, or the [graphingExcel.m](#graphingexcelm-changes) for the xlsx output.
 
 ### graphing.m changes
 Lines 26 and 27 where the overarching structure is set up should be replaced to the following structure:

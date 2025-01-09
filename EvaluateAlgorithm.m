@@ -10,7 +10,7 @@ Options.AuthenticPath=char(fullfile(rootPath, 'Dataset','Authentic\'));
 Options.MasksPath=char(fullfile(rootPath, 'Dataset', 'Masks\'));
 Options.OutputPath=char(fullfile(rootPath, 'Output\'));
 
-% Aditional options:
+% Additional options:
 % This mask dictates option three of the masks, detailed in the README 
 one_mask = true; %True if one mask for multiple images. False if not
 % The name of the dataset. Only used for naming the output folders, does not
