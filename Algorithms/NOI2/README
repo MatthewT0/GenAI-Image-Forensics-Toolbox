@@ -1,0 +1,62 @@
+Copyright (C) 2016 Markos Zampoglou
+Information Technologies Institute, Centre for Research and Technology Hellas
+6th Km Harilaou-Thermis, Thessaloniki 57001, Greece
+
+The core of this code was provided by Dr. Siwei Lyu:
+Dr. Siwei Lyu, Ph.D.
+lsw@cs.albany.edu
+http://www.cs.albany.edu/~lsw/
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the Apache Licence v2.0. It does not offer any warranty,
+not even of NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A PARTICULAR 
+PURPOSE. See the Apache License in the accompanying LICENCE file for 
+more details. If you have not received such a file, see 
+http://www.apache.org/licenses/LICENSE-2.0
+
+Additional permission under Apache Licence version 2 section 9
+
+If you modify this Program, or any covered work, by linking or combining it 
+with Matlab JPEG Toolbox (or a modified version of that library), 
+containing parts covered by the terms of Matlab JPEG Toolbox License, 
+the licensors of this Program grant you additional permission to convey the 
+resulting work.
+
+***************
+* Description *
+***************  
+
+this package includes a Matlab implementation of an algorithm used to detect 
+noise pattern inconsistencies, as described in:
+
+Lyu, Siwei, Xunyu Pan, and Xing Zhang. "Exposing region splicing forgeries 
+with blind local noise estimation." International Journal of Computer Vision 
+110, no. 2 (2014): 202-221.
+
+If you use the code for academic purposes, you should 
+cite the aforementioned work.
+
+A demo script and a sample image are included.
+
+************
+* Platform *
+************      
+
+Written and tested on Matlab 8.3.0.532 (R2014a) 
+It is likely that it will work on older versions.
+
+***********************
+* Contact Information *
+***********************
+
+Main code provided by:
+Dr. Siwei Lyu, Ph.D.
+Associate Professor, Department of Computer Science
+University at Albany, State University of New York 
+lsw@cs.albany.edu
+http://www.cs.albany.edu/~lsw/
+
+Code wrapped and integrated by:
+Dr. Markos Zampoglou, PhD
+CERTH-ITI, Thessaloniki, Greece
+markzampoglou@iti.gr
