@@ -19,4 +19,4 @@ This version of the pre-release fixes errors within the documentation.
 ## Important Notes
  - The toolbox has only been tested in windows, but in theory should work on Linux.
 
-**Full Changelog**: https://github.com/MatthewT0/GenAI-Image-Forensics-Toolbox/commits/v0.1.1
+**Full Changelog**: https://github.com/MatthewT0/GenAI-Image-Forensics-Toolbox/compare/v0.1.0...v0.1.1
