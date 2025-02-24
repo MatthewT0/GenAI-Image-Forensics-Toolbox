@@ -1,5 +1,5 @@
 % Set paths
-rootPath = 'C:\Users\User\Documents\1-Github\GenAI-Image-Forensics-Toolbox\';
+rootPath = pwd;
 organisedPath = char(fullfile(rootPath,'OrganisedFiles'));
 AumatFilesStruct = dir(fullfile(rootPath, 'Normalised', '**', 'Au', '**', '*.mat')); % Wildcard file structure for accessing Au mat files
 
