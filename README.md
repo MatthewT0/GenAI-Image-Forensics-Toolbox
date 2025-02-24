@@ -2,7 +2,7 @@
 GenAI-Image-Forensics-Toolbox is a MATLAB-based project designed for analysing and evaluating the integrity of images. This is adapted from the Image Forensics MATLAB Toolbox, which consists of 16 localisation algorithms for splicing detection. The code has been adapted to run on inpainting modified images, which have a similar modification technique to splicing and use 13 of the 16 included algorithms.
 
 The base code was primarily adapted from the [Image Forensics Toolbox](https://github.com/MKLab-ITI/image-forensics/blob/master/matlab_toolbox/), and individual citations for each algorithm can be found within the corresponding algorithm directories README. Additionally, a list of citations used within this implementation of the framework can be found in the [Citation](#citations) section.  
-This code was amended, written, and tested using MATLAB R2024a in both Windows 10 and 11.
+This code was amended, written, and tested using MATLAB R2024a and MATLAB R2024b in both Windows 10 and 11.
 
 This README provides detailed instructions for setting up the repository, guidance on its usage, and an overview of directory structure and its contents.
 - For details on code modifications refer to [developer_guidelines](docs/developer_guidelines.md).
@@ -325,6 +325,8 @@ https://doi.org/10.1016/j.imavis.2009.02.001
 
 **NOI4** - Jonas Wagner. 2015. Noise Analysis for Image Forensics. http://29a.ch/2015/08/21/noise-analysis-for-image-forensics
 
-**NOI5** - Hui Zeng, Yifeng Zhan, Xiangui Kang, and Xiaodan Lin. 2017. Image splicing
-localization using PCA-based noise level estimation. Multimedia Tools and
+**NOI5** - Hui Zeng, Yifeng Zhan, Xiangui Kang, and Xiaodan Lin. 2017. Image splicing localization using PCA-based noise level estimation. Multimedia Tools and
 Applications 76, 4783–4799. https://doi.org/10.1007/s11042-016-3712-8
+
+
+**TruFor** - Fabrizio Guillaro, Davide Cozzolino, Avneesh Sud, Nicholas Dufour, and Luisa Verdoliva. 2023. TruFor: Leveraging All-Round Clues for Trustworthy Image Forgery Detection and Localization. Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 20606-20615. https://doi.org/10.1109/CVPR52729.2023.01974 

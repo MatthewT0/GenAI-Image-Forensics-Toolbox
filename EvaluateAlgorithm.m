@@ -10,7 +10,7 @@ Options.AuthenticPath=char(fullfile(rootPath, 'Dataset','Authentic\'));
 Options.MasksPath=char(fullfile(rootPath, 'Dataset', 'Masks\'));
 Options.OutputPath=char(fullfile(rootPath, 'Output\'));
 
-% Aditional options:
+% Additional options:
 % This mask dictates option three of the masks, detailed in the README 
 one_mask = true; %True if one mask for multiple images. False if not
 % The name of the dataset. Only used for naming the output folders, does not
@@ -21,6 +21,7 @@ Options.ValidExtensions={'*.jpg','*.jpeg','*.png'};
 algorithmNames = {'ADQ1', 'ADQ2', 'ADQ3', 'BLK', 'CAGI', 'CFA1', ... % option to run all
                 'CFA3', 'DCT', 'ELA', 'NADQ', ...
                 'NOI1','NOI4', 'NOI5'}; 
+% algorithmNames = {'TruFor'}; % if you want to use TruFor please first read the relevant developer guidelines section.
 
 %  This is where program starts, you shouldn't need to edit anything below this line unless you are modifying/adapting the code for other purposes
 % -----------------------------------------------------------------------------------------------------------------------------------
@@ -58,6 +59,5 @@ for i = 1:length(algorithmNames)
 end
 
 % Remove paths only once after processing all algorithms
-rmpath(['.' filesep 'Util/jpegtbx_1.4' filesep]);
-rmpath(['.' filesep 'Util' filesep]);
-
+rmpath(['.' filesep 'Util/jpeg_toolbox/jpegtbx_1.4' filesep])
+rmpath(['.' filesep 'Util/jpeg_toolbox' filesep]);
