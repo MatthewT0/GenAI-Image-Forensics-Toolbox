@@ -4,7 +4,7 @@ addpath(['.' filesep 'Util/jpeg_toolbox' filesep])
 addpath(['.' filesep 'Util/jpeg_toolbox/jpegtbx_1.4' filesep]);
 
 % File Paths:
-rootPath='C:\Users\User\Documents\1-Github\GenAI-Image-Forensics-Toolbox\';
+rootPath=pwd;
 Options.SplicedPath=char(fullfile(rootPath, 'Dataset','Tampered\'));
 Options.AuthenticPath=char(fullfile(rootPath, 'Dataset','Authentic\'));
 Options.MasksPath=char(fullfile(rootPath, 'Dataset', 'Masks\'));

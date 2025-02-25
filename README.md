@@ -17,7 +17,6 @@ This README provides detailed instructions for setting up the repository, guidan
   - [Unzip the jpeg\_toolbox.rar](#unzip-the-jpeg_toolboxrar)
   - [Run the Setup Script](#run-the-setup-script)
   - [Add Images to Corresponding Directories](#add-images-to-corresponding-directories)
-  - [Set File Paths](#set-file-paths)
 - [MATLAB Script Run Order](#matlab-script-run-order)
 - [Directory Structure](#directory-structure)
   - [Dataset](#dataset)
@@ -27,25 +26,23 @@ This README provides detailed instructions for setting up the repository, guidan
 
 ## Roadmap and Future Changes
 We are continuously improving this project. Key planned updates include:
-- Removing the need for user input in directory paths.
-- Merging post-processing scripts to create a more user-friendly and automated process.
-- Optimising code for improved performance and scalability.
-- Expanding support to include analysis for fully generated images.
+- [X] Removing the need for user input in directory paths.
+- [ ] Merging post-processing scripts to create a more user-friendly and automated process.
+- [ ] Optimising code for improved performance and scalability.
+- [ ] Expanding support to include analysis for fully generated images.
 
 ## Setup Instructions
 To setup this project the following needs to be completed:
 <!-- no toc -->
 1. [Prerequisites](#prerequisites)
-2. [Install the required MATLAB packages](#1-install-the-required-matlab-packages)
-3. [Unzip the jpeg_toolbox.rar](#2-unzip-the-jpeg_toolboxrar)
-4. [Run the Setup Script](#3-run-the-setup-script)
-5. [Add Images to Corresponding Directories](#4-add-images-to-corresponding-directories)
-6. [Set File Paths](#5-set-filepaths-within-the-evaluatealgorithmsm)
-
+2. [Install the required MATLAB packages](#install-the-required-matlab-packages)
+3. [Unzip the jpeg_toolbox.rar](#unzip-the-jpeg_toolboxrar)
+4. [Run the Setup Script](#run-the-setup-script)
+5. [Add Images to Corresponding Directories](#add-images-to-corresponding-directories)
 
 ### Prerequisites
 Before setting up the project, ensure you have:
-- MATLAB R2024a installed on your system.
+- MATLAB R2024a or R2024b installed on your system.
 - A git clone of the GenAI-Image-Forensics-Toolbox repository.
 - The required toolbox files (jpeg_toolbox.rar) within the Util directory.
 
@@ -130,19 +127,6 @@ The classes can be any subject class of your choice as long as they match the cl
 It is recommended to read the [Mask Requirement](#mask-requirement) of this documentation and follow option 1 to fill the dataset directory correctly.
 
 **IMPORTANT:** If you are not splitting your images up by classes then refer to the [developer_guidelines](docs/developer_guidelines.md) for guidelines on how to adapt the code for this layout.
-
-### Set File Paths
-Make sure all rootPath variables end with path separator! ("/" or "\\" depending on your system). All rootPath variables should have the absolute path to the root folder of the repository for the code to work.
-
-Within each script the rootPath **must** be changed to the absolute path of this repo for the code to run. For each script it can be found on the following lines:
-
-- In ./EvaluateAlgorithm.m on line 6
-- In ./Analysis_and_Processing/normalised.m on line 2
-- In ./Analysis_and_Processing/organiseFiles.m on line 2
-- In ./Analysis_and_Processing/AuAddition on line 2
-- In ./Analysis_and_Processing/CalculatingThresholds on line 2
-- In ./Analysis_and_Processing/graphing on line 2
-- In ./Analysis_and_Processing/graphingExcel on line 2
 
 ## MATLAB Script Run Order
 The MATLAB sripts should be run in the following order:

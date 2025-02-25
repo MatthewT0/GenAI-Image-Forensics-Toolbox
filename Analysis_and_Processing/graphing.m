@@ -1,5 +1,5 @@
 % paths and starting variable declarations
-rootPath = 'C:\Users\User\Documents\1-Github\GenAI-Image-Forensics-Toolbox\';
+rootPath = pwd;
 organisedPath = char(fullfile(rootPath, 'OrganisedFiles'));
 thresholdDirs = {'Threshold'};
 outputPath = char(fullfile(organisedPath, 'Graphing\'));

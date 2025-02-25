@@ -1,5 +1,5 @@
 % Paths
-rootPath= 'C:\Users\User\Documents\1-Github\GenAI-Image-Forensics-Toolbox\';
+rootPath= pwd;
 SpmatFilesStruct = dir(fullfile(rootPath, 'Normalised', '**', 'Sp', '**', '*.mat')); % Wildcard file structure for accessing SP mat files
 organisedPath = fullfile(rootPath, 'OrganisedFiles');
 

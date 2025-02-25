@@ -1,5 +1,5 @@
 % Paths
-rootPath = 'C:\Users\User\Documents\1-Github\GenAI-Image-Forensics-Toolbox\';
+rootPath = pwd;
 normalisedPath = char(fullfile(rootPath, 'Normalised'));
 outputPath = char(fullfile(rootPath, 'Output'));
 
