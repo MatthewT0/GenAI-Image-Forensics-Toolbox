@@ -1,7 +1,4 @@
 clear all;
-addpath(['.' filesep 'Util' filesep]);
-addpath(['.' filesep 'Util/jpeg_toolbox' filesep])
-addpath(['.' filesep 'Util/jpeg_toolbox/jpegtbx_1.4' filesep]);
 
 % File Paths:
 rootPath=pwd;
@@ -57,7 +54,3 @@ for i = 1:length(algorithmNames)
     disp(['True Positives at 5% False Positives: ' num2str(TP_at_05*100) '%']);
     
 end
-
-% Remove paths only once after processing all algorithms
-rmpath(['.' filesep 'Util/jpeg_toolbox/jpegtbx_1.4' filesep])
-rmpath(['.' filesep 'Util/jpeg_toolbox' filesep]);
