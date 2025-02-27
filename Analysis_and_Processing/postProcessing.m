@@ -1,7 +1,8 @@
 function postProcessing()
     % Flags
     overwriteFlag = false; % set to True to overwrite the Output directory
-
+    removeProcessedFiles = false; % set to true to remove Output, Normalised files when struct made
+    
     % Paths
     rootPath = pwd;
     inputData = char(fullfile(rootPath, 'Output'));
@@ -20,6 +21,13 @@ function postProcessing()
     disp('[*] Starting to add authentic images to the organised struct');
     auAddition(rootPath, organisedPath, normalisedPath);
 
+    % remove directories if option selected to remove output and normalised data on struct creation
+    if removeProcessedFiles == true && overwriteFlag == true
+        rmdir(normalisedPath,'s')
+    elseif removeProcessedFiles == true && overwriteFlag == false
+        rmdir(normalisedPath,'s')
+        rmdir(inputData,'s')
+    end
 end
 
 % ------------------------------------------------------------------------------------------------
