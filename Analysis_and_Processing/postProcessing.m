@@ -183,27 +183,25 @@ function organiseFiles(organisedPath, normalisedPath)
             currentDataset = datasetStructTemplate; 
         end
     
-        if strcmp(type, 'Sp')
-            % Parse SP file components
-            splitFile = strsplit(filename, '_');
-            tool = splitFile{1};
-            class = splitFile{2};
-            num = splitFile{4};
-            iterationSplit = strsplit(splitFile{5}, '.');
-            iteration = iterationSplit{1};
+        % Parse SP file components
+        splitFile = strsplit(filename, '_');
+        tool = splitFile{1};
+        class = splitFile{2};
+        num = splitFile{4};
+        iterationSplit = strsplit(splitFile{5}, '.');
+        iteration = iterationSplit{1};
 
-            % Extract data from SP file
-            normalisedResult = data.normalisedResult; 
-            binmask = data.BinMask; 
-            realImgName = strcat('real_', num, '.jpg');
+        % Extract data from SP file
+        normalisedResult = data.normalisedResult; 
+        binmask = data.BinMask; 
+        realImgName = strcat('real_', num, '.jpg');
 
-            % Append entry to the dataset
-            newEntry = struct('FileName', filename, 'Class', class, 'Tool', tool, ...
-                            'Num', num, 'Iteration', iteration, ...
-                            'NormalisedResult', normalisedResult, ...
-                            'RealImg', realImgName, 'RealResult', [], 'Binmask', binmask);
-            currentDataset = [currentDataset; newEntry];
-        end
+        % Append entry to the dataset
+        newEntry = struct('FileName', filename, 'Class', class, 'Tool', tool, ...
+                        'Num', num, 'Iteration', iteration, ...
+                        'NormalisedResult', normalisedResult, ...
+                        'RealImg', realImgName, 'RealResult', [], 'Binmask', binmask);
+        currentDataset = [currentDataset; newEntry];
         % Save the updated dataset to file
         save(savePath, 'currentDataset', '-v7.3');
     end
