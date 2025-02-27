@@ -1,30 +1,30 @@
 function postProcessing()
+    % Flags
+    overwriteFlag = false; % set to True to overwrite the Output directory
+
     % Paths
     rootPath = pwd;
-    normalisedPath = char(fullfile(rootPath, 'Normalised'));
     inputData = char(fullfile(rootPath, 'Output'));
     organisedPath = fullfile(rootPath, 'OrganisedFiles');
     
     % Create new directories for outputs if they don't exist
-    if not(isfolder(normalisedPath))
-        mkdir(normalisedPath);
-    end
     if not(isfolder(organisedPath))
         mkdir(organisedPath);
     end
 
     % Run functions to normalise then organise normalised data into a struct
     disp('[*] Starting to normalise the data');
-    normaliseData(inputData, normalisedPath);
+    normalisedPath = normaliseData(rootPath,inputData,overwriteFlag);
     disp('[*] Starting to add manipulated images to the organised struct');
-    organiseFiles(rootPath, organisedPath);
+    organiseFiles(organisedPath, normalisedPath);
     disp('[*] Starting to add authentic images to the organised struct');
-    auAddition(rootPath, organisedPath);
+    auAddition(rootPath, organisedPath, normalisedPath);
+
 end
 
 % ------------------------------------------------------------------------------------------------
 
-function normaliseData(inputData, normalisedPath)
+function[normalisedPath]=normaliseData(rootPath, inputData, overwriteFlag)
     % Normalise the data from EvaluateAlgorithm.m and created a new "normalised" directory for them instead of overwriting the original copies.
     % The values are normalised between 0 and 1 using the min max method, 
     % and each algorithms lowest and highest values are outputted to the command window, alongside the total files processed for verification.
@@ -33,6 +33,18 @@ function normaliseData(inputData, normalisedPath)
     AumatFilesStruct = dir(fullfile(inputData, '**', 'Au', '**', '*.mat')); % Wildcard file structure for accessing Au mat files
     SpmatFilesStruct = dir(fullfile(inputData, '**', 'Sp', '**', '*.mat')); % Wildcard file structure for accessing SP mat files
     matFilesStruct = [SpmatFilesStruct; AumatFilesStruct];
+
+    % Checks if the program is to overwrite the output or not
+    if overwriteFlag == false
+        % normalised path if required
+        normalisedPath = char(fullfile(rootPath, 'Normalised'));
+        % makes normalised directory
+        if not(isfolder(normalisedPath))
+            mkdir(normalisedPath);
+        end
+    else
+        normalisedPath = inputData;
+    end
 
     % Initialise containers for tracking global min and max per algorithm
     algMinMax = containers.Map('KeyType', 'char', 'ValueType', 'any');
@@ -118,25 +130,29 @@ function normaliseData(inputData, normalisedPath)
             end
             
             % Save the normalised result and BinMask to the new directory
+
+            % for each algorithm check file path,
+            % delete if already exists and replace with new normalised files 
             outputFilePath = fullfile(normalisedPath, algorithmName, type, class);
-            if ~exist(outputFilePath, 'dir')
+            if not(isfolder(outputFilePath))
                 mkdir(outputFilePath); % Ensure output directory exists
+            elseif isfolder(outputFilePath) && overwriteFlag == true
+                delete(fullfile(outputFilePath, splitPath{end})) % remove the output dir and files
             end
             save(fullfile(outputFilePath, splitPath{end}), 'normalisedResult', 'BinMask'); % Save normalised data and BinMask
         end
     end
-
 end
 
 % ------------------------------------------------------------------------------------------------
 
-function organiseFiles(rootPath, organisedPath)
+function organiseFiles(organisedPath, normalisedPath)
     % organises files by creating a structured dataset (struct)
     % that includes the key information such as filename, class, tool, 
     % normalised evaluation results, and other data required for result analysis.
 
     % Declare paths
-    SpmatFilesStruct = dir(fullfile(rootPath, 'Normalised', '**', 'Sp', '**', '*.mat')); % Wildcard file structure for accessing SP mat files
+    SpmatFilesStruct = dir(fullfile(normalisedPath, '**', 'Sp', '**', '*.mat')); % Wildcard file structure for accessing SP mat files
 
     % Initialise empty container template for dataset-specific structs
     datasetStructTemplate = struct('FileName', {}, 'Class', {}, 'Tool', {}, 'Num', {}, 'Iteration', {}, ...
@@ -175,12 +191,12 @@ function organiseFiles(rootPath, organisedPath)
             num = splitFile{4};
             iterationSplit = strsplit(splitFile{5}, '.');
             iteration = iterationSplit{1};
-    
+
             % Extract data from SP file
             normalisedResult = data.normalisedResult; 
             binmask = data.BinMask; 
             realImgName = strcat('real_', num, '.jpg');
-    
+
             % Append entry to the dataset
             newEntry = struct('FileName', filename, 'Class', class, 'Tool', tool, ...
                             'Num', num, 'Iteration', iteration, ...
@@ -195,11 +211,11 @@ end
 
 % ------------------------------------------------------------------------------------------------
 
-function auAddition(rootPath, organisedPath)
+function auAddition(organisedPath, normalisedPath)
     % Adds authentic reference data into the structured dataset (struct)
 
     % Declare paths
-    AumatFilesStruct = dir(fullfile(rootPath, 'Normalised', '**', 'Au', '**', '*.mat')); % Wildcard file structure for accessing Au mat files
+    AumatFilesStruct = dir(fullfile(normalisedPath, '**', 'Au', '**', '*.mat')); % Wildcard file structure for accessing Au mat files
 
     % Loop through authentic images and add to struct
     for j = 1:length(AumatFilesStruct)
