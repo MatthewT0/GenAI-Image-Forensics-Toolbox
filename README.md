@@ -27,7 +27,7 @@ This README provides detailed instructions for setting up the repository, guidan
 ## Roadmap and Future Changes
 We are continuously improving this project. Key planned updates include:
 - [X] Removing the need for user input in directory paths.
-- [ ] Merging post-processing scripts to create a more user-friendly and automated process.
+- [X] Merging post-processing scripts to create a more user-friendly and automated process.
 - [ ] Optimising code for improved performance and scalability.
 - [ ] Expanding support to include analysis for fully generated images.
 
@@ -132,9 +132,7 @@ It is recommended to read the [Mask Requirement](#mask-requirement) of this docu
 The MATLAB sripts should be run in the following order:
 <!-- no toc -->
 - [EvaluateAlgorithms](#evaluatealgorithmsm)
-- [normalised](#normalisedm)
-- [OrganiseFiles](#organisefilesm)
-- [AuAddition](#auadditionm)
+- [postProcessing](#postprocessingm)
 - [CalculatingThresholds](#calculatingthresholdsm)
 - [graphingExcel](#graphingexcelm)
 
@@ -147,33 +145,20 @@ It is recommended that you read the section about [Mask selection](#mask-require
 
 Upon running this script an Output directory should be made with subsequent directories for each algorithm names "Dataset_ALG", where ALG is the algorithm that was run on the images. Additionally, a directory called Evals will be created in the Output directory.
 
-### normalised.m <!-- omit from toc -->
-
+### postProcessing.m <!-- omit from toc -->
 This script can be found within the `./Analysis_and_Processing` directory.
 
-This script takes the output from the previous one and normalises the values so that they can be analysed and compared. The values are normalised between 0 and 1 using the min max method, and each algorithms lowest and highest values are outputted to the command window, alongside the total files processed for verification.
+This script performs two main processes: normalising the data and creating a structured dataset (struct) with the tampered and authentic image data.
 
-These files are then resaved in the Normalised directory, with the same file structure as the Output directory.
+Firstly, a function normalises the values so that they can be analysed and compared. The values are normalised between 0 and 1 using the min max method, and each algorithms lowest and highest values are outputted to the command window, alongside the total files processed for verification. These files are then resaved in the Normalised directory, with the same file structure as the Output directory.
 
-### OrganiseFiles.m <!-- omit from toc -->
+Then, a function organises these normalised files into a struct that includes the key information such as filename, class, tool, normalised evaluation results, and other data required for result analysis.  
+For large datasets, the script may take some time to complete. To monitor progress and confirm it is running correctly you can uncomment line 149 to enable progress output.
 
-This script can be found within the `./Analysis_and_Processing` directory.
+Lastly, a function processes the authentic reference image data adding the relevant data to the struct.  
+Similarly to the previous script, for larger datasets this script can take some time to complete. To monitor its progress and ensure it is running correctly you can uncomment line 210.
 
-The script organises files by creating a structured dataset (struct) that includes the key information such as filename, class, tool, normalised evaluation results, and other data required for result analysis.
-
-For large datasets, the script may take some time to complete. To monitor progress and confirm it is running correctly you can uncomment line 21 to enable progress output.
-
-The script outputs a .mat file for each algorithm, containing the organised structs. These files are saved in the OrganisedFiles directory, where they are used for further analysis.
-
-### AuAddition.m <!-- omit from toc -->
-
-This script can be found within the `./Analysis_and_Processing` directory.
-
-The script processes the structured data created by the previous script (OrganiseFiles.m) and allocates each tampered image with its corresponding authentic image and the output values corresponding to it.
-
-Similarly to the previous script, for larger datasets this script can take some time to complete. To monitor its progress and ensure it is running correctly you can uncomment line 12.
-
-The updated structured dataset (struct) overwrites the .mat files saved in the OrganisedFiles directory, for future analysis.
+The updated structured dataset (struct) is saved in the OrganisedFiles directory, for future analysis.
 
 ### CalculatingThresholds.m <!-- omit from toc -->
 

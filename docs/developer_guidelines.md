@@ -8,9 +8,7 @@ This code was amended, written, and tested using MATLAB R2024a and MATLAB R2024b
 ## Table of Contents <!-- omit from toc -->
 - [Implementing new algorithms and base code framework information](#implementing-new-algorithms-and-base-code-framework-information)
 - [Different Directory Structure Implementation](#different-directory-structure-implementation)
-  - [Normalised.m](#normalisedm)
-  - [organiseFiles.m](#organisefilesm)
-  - [auAddition.m](#auadditionm)
+  - [postProcessing.m](#postprocessingm)
 - [Changing what Algorithms to Run](#changing-what-algorithms-to-run)
   - [TruFor integration](#trufor-integration)
 - [Graphing different subdirectory splits](#graphing-different-subdirectory-splits)
@@ -22,30 +20,27 @@ For new algorithm implementation and further information on the base code framew
 
 ## Different Directory Structure Implementation
 If you are not using subfolders in your tampered images some code may need to be amended. The code modifications and files in which these need to take place can be found below. 
-### Normalised.m 
-Line 6 and 7 should be replaced with the no subfolder version, removing the wildcard for further directory indentation after Sp/Au:
+### postProcessing.m
+Line 33 and 34 should be replaced with the no subfolder version, removing the wildcard for further directory indentation after Sp/Au:
 ```Matlab
 AumatFilesStruct = dir(fullfile(outputPath, '**', 'Au', '*.mat')); 
 SpmatFilesStruct = dir(fullfile(outputPath, '**', 'Sp', '*.mat')); 
 ``` 
 
-Lines 26, 67, 68, and 71 may need to be changed depending on your directory structure. Only the number index should need changed on these lines of code.
-
-### organiseFiles.m
-Line 3 should be replaced with the no subfolder version, removing the wildcard for further directory indentation after Sp:
+Line 139 should be replaced with the no subfolder version, removing the wildcard for further directory indentation after Sp:
 ```Matlab
 SpmatFilesStruct = dir(fullfile(outputPath, '**', 'Sp', '*.mat')); 
 ``` 
 
-Lines 23, 24,and 25 may need to be changed depending on your directory structure. Only the number index should need changed on these lines of code.
+Lines 154, 156, and 157 may need to be changed depending on your directory structure. Only the number index should need changed on these lines of code.
 
-### auAddition.m
-Line 4 should be replaced with the no subfolder version, removing the wildcard for further directory indentation after Au:
+Line 202 should be replaced with the no subfolder version, removing the wildcard for further directory indentation after Au:
 ```Matlab
 AumatFilesStruct = dir(fullfile(outputPath, '**', 'Au', '*.mat')); 
 ``` 
 
-Lines 16, 17, and 18 may need to be changed depending on your directory structure. Only the number index should need changed on these lines of code.
+Lines 214, 215, and 216 may need to be changed depending on your directory structure. Only the number index should need changed on these lines of code.
+
 
 ## Changing what Algorithms to Run
 The name of the algorithm must be the name of a subdirectory in `./Algorithms`.
