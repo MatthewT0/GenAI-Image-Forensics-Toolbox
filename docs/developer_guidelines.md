@@ -8,7 +8,7 @@ This code was amended, written, and tested using MATLAB R2024a and MATLAB R2024b
 ## Table of Contents <!-- omit from toc -->
 - [Implementing new algorithms and base code framework information](#implementing-new-algorithms-and-base-code-framework-information)
 - [Different Directory Structure Implementation](#different-directory-structure-implementation)
-  - [postProcessing.m](#postprocessingm)
+  - [No subfolders](#no-subfolders)
 - [Changing what Algorithms to Run](#changing-what-algorithms-to-run)
   - [TruFor integration](#trufor-integration)
 - [Graphing different subdirectory splits](#graphing-different-subdirectory-splits)
@@ -19,8 +19,9 @@ This code was amended, written, and tested using MATLAB R2024a and MATLAB R2024b
 For new algorithm implementation and further information on the base code framework (Algorithms folder and all .m scripts in the root directory) refer to the [Original Repository README](Original_Repo_Readme.md). 
 
 ## Different Directory Structure Implementation
-If you are not using subfolders in your tampered images some code may need to be amended. The code modifications and files in which these need to take place can be found below. 
-### postProcessing.m
+### No subfolders
+If your tampered images directory does not use subfolders, you will need to modify the `postProcessing.m` script accordingly. The required code changes are provided below.
+
 Line 33 and 34 should be replaced with the no subfolder version, removing the wildcard for further directory indentation after Sp/Au:
 ```Matlab
 AumatFilesStruct = dir(fullfile(outputPath, '**', 'Au', '*.mat')); 
